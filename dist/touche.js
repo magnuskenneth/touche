@@ -1,4 +1,4 @@
-/*! Touché - v1.0.10 - 2013-11-10
+/*! Touché - v1.0.10 - 2013-11-17
 * https://github.com/stoffeastrom/touche/
 * Copyright (c) 2013 Christoffer Åström, Andrée Hansson; Licensed MIT */
 (function (fnProto) {
@@ -1223,6 +1223,7 @@
         };
     }
 }());
+
 (function(T) {
 	'use strict';
 
@@ -1658,7 +1659,7 @@ T.gestures.add('rotate', Rotate);
 			preventDefault: true,
 			touches: 1,
 			which: 1,
-			useMomentum: true
+			useMomentum: false
 		};
 
 		this.setSwipe = function(point) {
@@ -1762,6 +1763,7 @@ T.gestures.add('rotate', Rotate);
 			if(this.cancelled) {
 				return;
 			}
+			this.swipe.inEndMomentum = false;
 			this.cancelled = true;
 			if(this.started) {
 				this.binder.cancel.call(this);
